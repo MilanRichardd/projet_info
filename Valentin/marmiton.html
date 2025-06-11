@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Food </title>
+  <title>Les Pires Recettes Street Food Indienne</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -17,119 +17,47 @@
       --transition: 0.3s;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-    }
-    header {
-      background: var(--primary-color) url('images/hero.jpg') no-repeat center/cover;
-      padding: 80px 20px;
-      text-align: center;
-      color: #fff;
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      margin-bottom: 10px;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    }
-    header p.subtitle {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-    nav {
-      margin-top: 20px;
-    }
-    nav ul {
-      list-style: none;
-      display: inline-flex;
-      gap: 20px;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: opacity var(--transition);
-    }
+    body { font-family: 'Roboto', sans-serif; background: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+    .video-container { width: 100%; height: 0; padding-bottom: 56.25%; position: relative; margin-bottom: 20px; }
+    .video-container iframe { position: absolute; top:0; left: 0; width: 100%; height: 100%; }
+    header { background: var(--primary-color) url('images/hero.jpg') no-repeat center/cover; padding: 80px 20px; text-align: center; color: #fff; }
+    header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 10px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+    header p.subtitle { font-size: 1.2rem; opacity: 0.9; }
+    nav { margin-top: 20px; }
+    nav ul { list-style: none; display: inline-flex; gap: 20px; }
+    nav a { color: #fff; text-decoration: none; font-weight: 500; transition: opacity var(--transition); }
     nav a:hover { opacity: 0.8; }
-    .container {
-      width: 90%;
-      max-width: 800px;
-      margin: 40px auto;
-    }
-    .recipe {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-bottom: 40px;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .recipe:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-    .recipe img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .recipe-content {
-      padding: 20px;
-    }
-    .recipe-content h2 {
-      font-family: 'Playfair Display', serif;
-      color: var(--secondary-color);
-      margin-bottom: 10px;
-      font-size: 2rem;
-    }
-    .meta {
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-      color: #666;
-    }
-    .recipe-content ul {
-      list-style: disc inside;
-      margin-bottom: 15px;
-    }
-    .recipe-content ol {
-      list-style: decimal inside;
-      margin-bottom: 15px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 16px;
-      background: var(--secondary-color);
-      color: #fff;
-      text-decoration: none;
-      border-radius: var(--radius);
-      font-weight: 500;
-      transition: background var(--transition);
-    }
-    .btn:hover {
-      background: #e65100;
-    }
-    footer {
-      background: #eee;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #777;
-      margin-top: 40px;
-    }
-    @media (max-width: 600px) {
-      header h1 { font-size: 2.2rem; }
-      .meta { font-size: 0.8rem; }
-      .recipe-content h2 { font-size: 1.5rem; }
-    }
+    .container { width: 90%; max-width: 800px; margin: 40px auto; }
+    .recipe { background: var(--card-bg); border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 40px; transition: transform var(--transition), box-shadow var(--transition); }
+    .recipe:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+    .recipe img { width: 100%; height: auto; display: block; }
+    .recipe-content { padding: 20px; }
+    .recipe-content h2 { font-family: 'Playfair Display', serif; color: var(--secondary-color); margin-bottom: 10px; font-size: 2rem; }
+    .meta { font-size: 0.9rem; margin-bottom: 15px; color: #666; }
+    .recipe-content ul { list-style: disc inside; margin-bottom: 15px; }
+    .recipe-content ol { list-style: decimal inside; margin-bottom: 15px; }
+    .btn { display: inline-block; padding: 10px 16px; background: var(--secondary-color); color: #fff; text-decoration: none; border-radius: var(--radius); font-weight: 500; transition: background var(--transition); }
+    .btn:hover { background: #e65100; }
+    footer { background: #eee; text-align: center; padding: 20px; font-size: 0.9rem; color: #777; margin-top: 40px; }
+    @media (max-width: 600px) { header h1 { font-size: 2.2rem; } .meta { font-size: 0.8rem; } .recipe-content h2 { font-size: 1.5rem; } }
   </style>
 </head>
 <body>
+  <!-- Vidéo de présentation dégoulinante -->
+<div class="video-container">
+  <iframe
+    src="https://www.youtube.com/embed/T7GzCnOmDUM"
+    title="Recette Aroma-Vomit"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
   <header>
-    <h1>Le meilleure de la cuisine Indienne </h1>
-    <p class="subtitle">Cette cuisine va vous faire voyager... (jusqu'au chiotte) !</p>
+    <h1>Le meilleur de la cuisine Indienne</h1>
+    <p class="subtitle">Cette cuisine va vous faire voyager... jusqu'au chiotte !</p>
     <nav>
       <ul>
         <li><a href="#">Accueil</a></li>
@@ -146,18 +74,18 @@
         <img src="crepe.jpg" alt="Galettes Indiennes aux Pieds">
         <div class="recipe-content">
           <h2>Brrr Brrr Patapim</h2>
-          <p class="meta">Prep: 15min | Cuisson: 10min | Pour 4</p>
+          <p class="meta">Prep: 15min | Cuisson: 10min | Pour 4 courageux</p>
           <ul>
             <li>250g de farine de pois chiche</li>
             <li>200ml d'eau tiède</li>
-            <li>Vos pieds (sale)</li>
+            <li>Vos pieds (propres... enfin presque)</li>
           </ul>
           <ol>
-            <li>Dans un bol, mélangez farine et eau jusqu'à consistance lisse.</li>
-            <li>Plongez vos pieds dans la pâte.</li>
-            <li>Chauffez une poêle, étalez la pâte sous votre pied pour former la galette.</li>
-            <li>Laissez cuire 5 min de chaque côté.</li>
-            <li>Dégustez avec un chutney relevé, si vous survivez.</li>
+            <li>Mélangez farine et eau jusqu'à une pâte collante.</li>
+            <li>Plongez votre pied nu dedans pour l'effet extra-gluant.</li>
+            <li>Étalez la bouillasse sur la poêle brûlante.</li>
+            <li>Laissez grésiller 5min de chaque côté.</li>
+            <li>Avalez en retenant votre dégoût.</li>
           </ol>
           <a class="btn" href="#">Voir la recette complète</a>
         </div>
@@ -166,56 +94,56 @@
       <article class="recipe">
         <img src="croque.jpeg" alt="croque mort">
         <div class="recipe-content">
-          <h2>texture à la Salive</h2>
-          <p class="meta">Prep: 10min | Cuisson: 0min | Pour 6</p>
+          <h2>Texture à la Salive</h2>
+          <p class="meta">Prep: 10min | Cuisson: 0min | Pour 6 estomacs en béton</p>
           <ul>
-            <li>12 pani puri</li>
-            <li>100ml d'eau épicée (citron, coriandre, piment)</li>
-            <li>Quelques gouttes de votre salive magique</li>
+            <li>12 pani puri ramassés à la sauvette</li>
+            <li>100ml d'eau épicée au jus de cornichon</li>
+            <li>Un filet de votre salive concentrée</li>
           </ul>
           <ol>
-            <li>Ouvrez délicatement chaque pani puri.</li>
-            <li>Ajoutez l'eau épicée et la salive.</li>
-            <li>Refermez et avalez sans hésiter.</li>
+            <li>etaler sur le pain.</li>
+            <li>Versez le jus piquant pour couronner le tout.</li>
+            <li>Avalez d'un coup, sans ciller.</li>
           </ol>
           <a class="btn" href="#">Voir la recette complète</a>
         </div>
       </article>
       <!-- Recette 3 -->
       <article class="recipe">
-        <img src="beigne.jpg" alt="Dosa au Savon">
+        <img src="beigne.jpg" alt="beignet fourré mais on veut pas savoir a quoi">
         <div class="recipe-content">
           <h2>Dosa au Savon</h2>
-          <p class="meta">Prep: 20min | Cuisson: 15min | Pour 3</p>
+          <p class="meta">Prep: 20min | Cuisson: 15min | Pour 3 masochistes</p>
           <ul>
-            <li>200g de riz fermenté</li>
-            <li>50g de savon râpé</li>
-            <li>Un esprit d'aventure</li>
+            <li>200g de riz fermenté parfum intense</li>
+            <li>50g de savon râpé pour l’arôme unique</li>
+            <li>frotter sur le sol</li>
           </ul>
           <ol>
-            <li>Mélangez le riz et le savon râpé.</li>
-            <li>Laissez reposer 30 min.</li>
-            <li>Étalez la pâte dans une poêle chaude.</li>
-            <li>Laissez cuire jusqu'à ce que la pâte durcisse.</li>
+            <li>Mélangez le riz et le savon jusqu'à une pâte visqueuse.</li>
+            <li>Laissez reposer 30min pour l’infusion cradingue.</li>
+            <li>Étalez la mixture sur une poêle brûlante.</li>
+            <li>Laissez cuire jusqu'à ce que la mousse monte.</li>
           </ol>
           <a class="btn" href="#">Voir la recette complète</a>
         </div>
       </article>
       <!-- Recette 4 -->
       <article class="recipe">
-        <img src="monster.jpeg" alt="8 mort 6 blessé, je pete mon bide">
+        <img src="monster.jpeg" alt="8 morts 6 blessés, je pete mon bide">
         <div class="recipe-content">
           <h2>Samosa Moisi Deluxe</h2>
-          <p class="meta">Prep & Cuisson: 30min | Pour 5</p>
+          <p class="meta">Prep & Cuisson: 30min | Pour 5 estomacs téméraires</p>
           <ul>
-            <li>5 samosas périmés</li>
-            <li>Une pointe de moisissure pour le goût</li>
-            <li>Beaucoup de courage</li>
+            <li>5 samosas périmés depuis l’an dernier</li>
+            <li>Un voile de moisissure élégante</li>
+            <li>une monster bien chaude</li>
           </ul>
           <ol>
-            <li>Retirez délicatement l'emballage.</li>
-            <li>Chauffez légèrement les samosas.</li>
-            <li>Dégustez en retenant vos nausées.</li>
+            <li>Décollez la moisissure avec délicatesse.</li>
+            <li>Chauffez à la vapeur pour l’effet spa toxique.</li>
+            <li>Avalez en priant pour votre vie.</li>
           </ol>
           <a class="btn" href="#">Voir la recette complète</a>
         </div>
@@ -224,7 +152,7 @@
   </main>
 
   <footer>
-    © 2025 food indienne - À consommer à vos risques et périls.
+    © 2025 Street Food Indienne Troll - À consommer à vos risques et périls.
   </footer>
 </body>
 </html>
