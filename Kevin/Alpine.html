@@ -26,38 +26,148 @@
     header{
       background:linear-gradient(to right,#002a5c,var(--accent));
       text-align:center; padding:2rem; position:relative;
+      animation: slideInFromBottom 1s ease-out;
+    }
+    
+    header h1 {
+      animation: slideInFromLeft 1.2s ease-out 0.3s both;
+    }
+    
+    header p {
+      animation: slideInFromRight 1.2s ease-out 0.6s both;
     }
     header img{ max-width:140px; opacity:0; animation:fadeIn 2s forwards; }
     @keyframes fadeIn{ to{ opacity:1; } }
+    
+    /* Nouvelles animations */
+    @keyframes slideInFromLeft {
+      0% { transform: translateX(-100%); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes slideInFromRight {
+      0% { transform: translateX(100%); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes slideInFromBottom {
+      0% { transform: translateY(50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent), 0 0 15px var(--accent); }
+      50% { box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent), 0 0 30px var(--accent); }
+    }
     .toggle{
       position:absolute; top:1rem; right:1rem;
       border:2px solid var(--fg); background:none;
       color:var(--fg); padding:.4rem .8rem;
       cursor:pointer; transition:.3s;
+      animation: float 3s ease-in-out infinite;
     }
-    .toggle:hover{ background:var(--fg); color:var(--bg); }
-    nav{ display:flex; justify-content:center; background:var(--nav); padding:1rem; }
-    nav a{ color:var(--fg); margin:0 1rem; text-decoration:none; }
-    nav a:hover{ color:var(--accent); }
+    .toggle:hover{ 
+      background:var(--fg); 
+      color:var(--bg); 
+      animation: pulse 0.6s ease-in-out;
+    }
+    nav{ 
+      display:flex; justify-content:center; background:var(--nav); padding:1rem;
+      animation: slideInFromBottom 1s ease-out 0.8s both;
+    }
+    nav a{ 
+      color:var(--fg); margin:0 1rem; text-decoration:none; 
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    nav a:hover{ 
+      color:var(--accent); 
+      transform: translateY(-2px);
+    }
+    nav a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transition: left 0.3s ease;
+    }
+    nav a:hover::before {
+      left: 0;
+    }
     .hero{
       background:url('https://www.alpinecars.com/media/alpine-a110-hero.jpg') center/cover;
       height:60vh; display:flex; align-items:center; justify-content:center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: shine 3s ease-in-out infinite;
+    }
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
     }
     .hero h1{
       font-family:'Orbitron',sans-serif; font-size:2.5rem;
       background:rgba(0,0,0,.5); padding:1rem;
+      animation: slideInFromBottom 1.5s ease-out 1s both;
+      position: relative;
+      z-index: 1;
     }
-    section{ padding:3rem 2rem; max-width:1000px; margin:auto; }
+    section{ 
+      padding:3rem 2rem; max-width:1000px; margin:auto;
+      animation: slideInFromBottom 0.8s ease-out;
+    }
+    
+    section h2 {
+      animation: slideInFromLeft 0.8s ease-out;
+      transition: all 0.3s ease;
+    }
+    
+    section h2:hover {
+      color: var(--accent);
+      transform: translateX(10px);
+    }
     .slider-container{ position:relative; max-width:600px; margin:auto; overflow:hidden; margin-top:2rem; }
     .slider{ display:flex; transition:transform .5s ease; }
     .slide{
       min-width:100%; padding:1rem;
       background:var(--card-bg);
       text-align:center; border-radius:10px;
+      transition: all 0.3s ease;
+    }
+    .slide:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 30px rgba(0, 170, 255, 0.3);
     }
     .slide img{
       max-width:100%; max-height:200px;
       object-fit:cover; border-radius:8px;
+      transition: all 0.3s ease;
+    }
+    .slide:hover img {
+      transform: scale(1.05);
     }
     .slide h3{ color:var(--accent); margin:1rem 0 .5rem; }
     .slide p{ font-size:.9rem; line-height:1.4; }
@@ -66,6 +176,12 @@
       background:var(--accent); color:#fff; border:none;
       padding:.5rem 1rem; font-size:2rem;
       cursor:pointer; border-radius:5px; z-index:2;
+      transition: all 0.3s ease;
+    }
+    .prev:hover, .next:hover {
+      background: #0088cc;
+      transform: translateY(-50%) scale(1.1);
+      animation: glow 1s ease-in-out;
     }
     .prev{ left:10px; } .next{ right:10px; }
     footer{
@@ -107,14 +223,68 @@
     .img-container {
       text-align: center;
       margin: 2rem 0;
+      animation: slideInFromBottom 0.8s ease-out;
+    }
+    
+    /* Particules flottantes */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: particleFloat 8s linear infinite;
+    }
+    
+    @keyframes particleFloat {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      90% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    /* Animation de scroll reveal */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
-      <header>
+  <!-- Particules flottantes -->
+  <div class="particles" id="particles"></div>
+  
+  <header>
     <button class="toggle" onclick="document.body.classList.toggle('light')">Mode Clair/Sombre</button>
     <h1>Alpine</h1>
-    <p>La passion automobile française depuis 1955</p>
+    <p class="scroll-reveal">La passion automobile française depuis 1955</p>
   </header>
 
 
@@ -130,7 +300,7 @@
 
 
   <section id="histoire">
-    <div class="container">
+    <div class="container scroll-reveal">
         <h1>Histoire d'Alpine</h1>
         <p>Alpine est une marque automobile française fondée en 1955 par Jean Rédélé. Voici un aperçu de son histoire :</p>
         
@@ -167,7 +337,7 @@
   <div class="hero"><h1>La nouvelle ère Alpine</h1></div>
 
   <section id="modeles">
-    <h2>Modèles Alpine</h2>
+    <h2 class="scroll-reveal">Modèles Alpine</h2>
     <div class="slider-container">
       <button class="prev">&#10094;</button>
       <div class="slider">
@@ -187,13 +357,13 @@
         <div class="slide">
           <img src="https://img4.autodeclics.com/photo_article/103135/41508/1200-L-alpine-a110-2022-une-gamme-claircie-pour-les-dernires-annes-du-thermique.jpg" alt="Alpine A110">
           <h3>A110</h3>
-          <p>Le modèle emblématique revisité pour aujourd’hui : agilité, précision et plaisir de conduite pur: 252 ch, 0–100 km/h en 4,5 s.</p>
+          <p>252 ch, 0–100 km/h en 4,5 s, esprit originel.</p>
         </div>
         <!-- A110 GT -->
         <div class="slide">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKbDq-tGwmFxCsVGobcCumw4buqXQ0mXTw8g&s" alt="Alpine A110 GT">
           <h3>A110 GT</h3>
-          <p>La version grand tourisme : confort, élégance et performance réunis dans une même machine: 300 ch, 0–100 km/h en 4,2 s, poids 1 119 kg.</p>
+          <p>300 ch, 0–100 km/h en 4,2 s, poids 1 119 kg.</p>
         </div>
         <!-- A110 S -->
         <div class="slide">
@@ -205,7 +375,7 @@
         <div class="slide">
           <img src="https://lachainerenault.com/wp-content/uploads/2024/10/f4d6e333ad3b01abee2471b5aa54568d-l.jpg.webp" alt="Alpine A110 R">
           <h3>A110 R</h3>
-          <p>La sportive ultime de la gamme : plus de puissance, plus de grip, plus d’émotions, 300 ch, poids 1 082 kg, 0–100 km/h en 3,9 s, top 285 km/h.</p>
+          <p>300 ch, poids 1 082 kg, 0–100 km/h en 3,9 s, top 285 km/h.</p>
         </div>
       </div>
       <button class="next">&#10095;</button>
@@ -215,8 +385,8 @@
 
 
 <section id="course">
-    <h2>Alpine et la Course Automobile</h2>
-    <p>
+    <h2 class="scroll-reveal">Alpine et la Course Automobile</h2>
+    <p class="scroll-reveal">
       L'ADN d'Alpine est profondément enraciné dans la compétition. Dès les années 60, Alpine s'illustre dans les rallyes, avec des victoires retentissantes comme au Rallye de Monte-Carlo. La marque atteint son apogée en 1978 en remportant les 24 Heures du Mans avec l'A442B.
     </p>
     <p>
@@ -225,18 +395,19 @@
   </section>
 
   <section id="innovation">
-    <h2>Innovation & Technologie</h2>
-    <p>
+    <h2 class="scroll-reveal">Innovation & Technologie</h2>
+    <p class="scroll-reveal">
       Alpine intègre les technologies les plus avancées pour offrir une expérience de conduite authentique. Châssis en aluminium, moteur central arrière, suspension optimisée : chaque élément est pensé pour la performance et le plaisir.
     </p>
   </section>
 
   <section id="contact">
-    <h2>Contact & Infos</h2>
-    <p>Pour en savoir plus, visitez le site officiel : <a href="https://www.alpinecars.com" target="_blank">alpinecars.com</a></p>
+    <h2 class="scroll-reveal">Contact & Infos</h2>
+    <p class="scroll-reveal">Pour en savoir plus, visitez le site officiel : <a href="https://www.alpinecars.com" target="_blank">alpinecars.com</a></p>
   </section>
 
   <script>
+    // Script existant pour le slider
     const slider = document.querySelector('.slider');
     const slides = document.querySelectorAll('.slide');
     const prev = document.querySelector('.prev');
@@ -255,6 +426,46 @@
     setInterval(()=>{
       index = (index + 1) % total; updateSlider();
     }, 5000);
+
+    // Nouveaux scripts pour les animations
+    
+    // Création des particules
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 15;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 8 + 's';
+        particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+        particlesContainer.appendChild(particle);
+      }
+    }
+    
+    // Animation de révélation au scroll
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.scroll-reveal');
+      
+      reveals.forEach(reveal => {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveal.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < windowHeight - elementVisible) {
+          reveal.classList.add('revealed');
+        }
+      });
+    }
+    
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', () => {
+      createParticles();
+      revealOnScroll();
+    });
+    
+    window.addEventListener('scroll', revealOnScroll);
   </script>
 </body>
 </html>
