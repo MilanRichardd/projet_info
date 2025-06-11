@@ -1,6 +1,6 @@
 # 🏆 CAPECL 2 - Récompenses 
 
-Bienvenue sur la page officielle des **Récompenses* de la classe **CAPECL 2** !
+Bienvenue sur la page officielle des **Récompenses** de la classe **CAPECL 2** !
 
 
 ## 🔥 Trophées à découvrir
