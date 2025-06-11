@@ -76,7 +76,7 @@
   </div>
 
   <div class="award">
-    <img src="images/Milan.jng" alt="Milan">
+    <img src="images/Milan.png" alt="Milan">
     <div class="award-text">
       <h2> Le plus intelligent</h2>
       <p> </p>
