@@ -76,7 +76,7 @@
   </div>
 
   <div class="award">
-    <img src="images/yassine.jpg" alt="Yassine">
+    <img src="images/Milan.jng" alt="Milan">
     <div class="award-text">
       <h2> Le plus intelligent</h2>
       <p> </p>
@@ -102,7 +102,7 @@
   <div class="award">
     <img src="images/mehdi.jpg" alt="Mehdi">
     <div class="award-text">
-      <h2> </h2>
+      <h2> Le plus drama queen </h2>
       <p> </p>
     </div>
   </div>
