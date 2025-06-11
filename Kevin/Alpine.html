@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpine - L'Excellence Automobile Française</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(to right, #002a5c, #0071ce);
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 3px;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #001f3f;
+      padding: 1rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #0071ce;
+    }
+    .hero {
+      background-image: url('https://www.alpinecars.com/media/alpine-a110-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .models {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1rem;
+    }
+    .card-content h3 {
+      margin-bottom: 0.5rem;
+      color: #0071ce;
+    }
+    footer {
+      background-color: #001f3f;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    footer p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Alpine</h1>
+    <p>La passion automobile française depuis 1955</p>
+  </header>
+
+  <nav>
+    <a href="#histoire">Histoire</a>
+    <a href="#modeles">Modèles</a>
+    <a href="#innovation">Innovation</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <h2>Découvrez l’A110 — Légèreté, Agilité, Pureté</h2>
+  </div>
+
+  <section id="histoire">
+    <h2>Notre Histoire</h2>
+    <p>
+      Fondée par Jean Rédélé en 1955, Alpine est née de la passion pour la compétition automobile. Connue pour ses voitures légères et performantes, la marque s’est distinguée dans les rallyes et sur les circuits. En 1973, Alpine remporte le Championnat du Monde des Rallyes avec l’A110. Après une pause, la marque renaît en 2017 sous l’égide de Renault avec un objectif clair : faire revivre l’esprit de la conduite pure.
+    </p>
+  </section>
+
+  <section id="modeles">
+    <h2>Nos Modèles</h2>
+    <div class="models">
+      <div class="card">
+        <img src="https://cdn.motor1.com/images/mgl/OooMz/s3/alpine-a110.jpg" alt="Alpine A110" />
+        <div class="card-content">
+          <h3>Alpine A110</h3>
+          <p>Le modèle emblématique revisité pour aujourd’hui : agilité, précision et plaisir de conduite pur.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://cdn.alpinecars.com/media/alpine-a110-gt.jpg" alt="A110 GT" />
+        <div class="card-content">
+          <h3>A110 GT</h3>
+          <p>La version grand tourisme : confort, élégance et performance réunis dans une même machine.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://cdn.alpinecars.com/media/alpine-a110-s.jpg" alt="A110 S" />
+        <div class="card-content">
+          <h3>A110 S</h3>
+          <p>La sportive ultime de la gamme : plus de puissance, plus de grip, plus d’émotions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="innovation">
+    <h2>Innovation & Technologie</h2>
+    <p>
+      Alpine intègre les technologies les plus avancées pour offrir une expérience de conduite authentique. Châssis en aluminium, moteur central arrière, suspension optimisée : chaque élément est pensé pour la performance et le plaisir.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact & Infos</h2>
+    <p>Pour en savoir plus, visitez le site officiel : <a href="https://www.alpinecars.com" target="_blank" style="color:#00aaff;">alpinecars.com</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Alpine - Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>
