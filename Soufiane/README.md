@@ -11,27 +11,43 @@
       padding: 0;
       color: #333;
     }
+
     header {
       background-color: #2e86de;
       color: white;
       padding: 30px 20px;
       text-align: center;
     }
+
     h1 {
       margin: 0;
       font-size: 2.5em;
     }
-    section {
+
+    .award {
+      display: flex;
+      align-items: center;
       padding: 20px;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #ddd;
     }
-    h2 {
+
+    .award img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 20px;
+      border: 3px solid #2e86de;
+    }
+
+    .award-text h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.6em;
       color: #2e86de;
-      font-size: 1.8em;
-      margin-bottom: 10px;
     }
-    p {
-      font-size: 1.3em;
+
+    .award-text p {
+      font-size: 1.2em;
       margin: 0;
     }
   </style>
@@ -43,40 +59,61 @@
     <p>Récompenses de la classe</p>
   </header>
 
-  <section>
-    <h2> Le plus charo de la classe</h2>
-    <p> </p>
-  </section>
+  <div class="award">
+    <img src="images/maxime.jpg" alt="Maxime">
+    <div class="award-text">
+      <h2> Le plus charo de la classe</h2>
+      <p> </p>
+    </div>
+  </div>
 
-  <section>
-    <h2> Le plus drôle</h2>
-    <p> </p>
-  </section>
+  <div class="award">
+    <img src="images/sofia.jpg" alt="Sofia">
+    <div class="award-text">
+      <h2> Le plus drôle</h2>
+      <p> </p>
+    </div>
+  </div>
 
-  <section>
-    <h2> Le plus intelligent</h2>
-    <p> </p>
-  </section>
+  <div class="award">
+    <img src="images/yassine.jpg" alt="Yassine">
+    <div class="award-text">
+      <h2> Le plus intelligent</h2>
+      <p> </p>
+    </div>
+  </div>
 
-  <section>
-    <h2> Le plus dormeur</h2>
-    <p></p>
-  </section>
+  <div class="award">
+    <img src="images/julien.jpg" alt="Julien">
+    <div class="award-text">
+      <h2> Le plus chiant</h2>
+      <p> </p>
+    </div>
+  </div>
 
-  <section>
-    <h2> Le meilleur style vestimentaire</h2>
-    <p> </p>
-  </section>
+  <div class="award">
+    <img src="images/lea.jpg" alt="Léa">
+    <div class="award-text">
+      <h2> Le meilleur style vestimentaire</h2>
+      <p> </p>
+    </div>
+  </div>
 
-  <section>
-    <h2> </h2>
-    <p> </p>
-  </section>
+  <div class="award">
+    <img src="images/mehdi.jpg" alt="Mehdi">
+    <div class="award-text">
+      <h2> </h2>
+      <p> </p>
+    </div>
+  </div>
 
-  <section>
-    <h2> Le plus timide</h2>
-    <p> </p>
-  </section>
+  <div class="award">
+    <img src="images/clara.jpg" alt="Clara">
+    <div class="award-text">
+      <h2> Le plus timide</h2>
+      <p> </p>
+    </div>
+  </div>
 
 </body>
 </html>
