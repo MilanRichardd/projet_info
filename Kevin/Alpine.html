@@ -1,155 +1,218 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alpine - L'Excellence Automobile Française</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Alpine – Galerie de Modèles</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: #0a0a0a;
-      color: #ffffff;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(to right, #002a5c, #0071ce);
-      padding: 2rem;
-      text-align: center;
-    }
     header h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 3rem;
       letter-spacing: 3px;
     }
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #001f3f;
-      padding: 1rem;
+    :root {
+      --bg: #0a0a0a; --fg: #fff;
+      --nav: #001f3f; --accent: #00aaff;
+      --card-bg: #1c1c1c;
     }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 1rem;
-      transition: color 0.3s;
+    body.light {
+      --bg: #f2f2f2; --fg: #111;
+      --nav: #e0e0e0; --accent: #0052a3;
+      --card-bg: #fff;
     }
-    nav a:hover {
-      color: #0071ce;
+    *{ margin:0;padding:0;box-sizing:border-box; }
+    body{ font-family:'Open Sans',sans-serif; background:var(--bg); color:var(--fg); transition:.3s; }
+    header{
+      background:linear-gradient(to right,#002a5c,var(--accent));
+      text-align:center; padding:2rem; position:relative;
     }
-    .hero {
-      
-      background-size: cover;
-      background-position: center;
-      height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    header img{ max-width:140px; opacity:0; animation:fadeIn 2s forwards; }
+    @keyframes fadeIn{ to{ opacity:1; } }
+    .toggle{
+      position:absolute; top:1rem; right:1rem;
+      border:2px solid var(--fg); background:none;
+      color:var(--fg); padding:.4rem .8rem;
+      cursor:pointer; transition:.3s;
     }
-    .hero h2 {
-      font-size: 2.5rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 1rem 2rem;
+    .toggle:hover{ background:var(--fg); color:var(--bg); }
+    nav{ display:flex; justify-content:center; background:var(--nav); padding:1rem; }
+    nav a{ color:var(--fg); margin:0 1rem; text-decoration:none; }
+    nav a:hover{ color:var(--accent); }
+    .hero{
+      background:url('https://www.alpinecars.com/media/alpine-a110-hero.jpg') center/cover;
+      height:60vh; display:flex; align-items:center; justify-content:center;
+    }
+    .hero h1{
+      font-family:'Orbitron',sans-serif; font-size:2.5rem;
+      background:rgba(0,0,0,.5); padding:1rem;
+    }
+    section{ padding:3rem 2rem; max-width:1000px; margin:auto; }
+    .slider-container{ position:relative; max-width:600px; margin:auto; overflow:hidden; margin-top:2rem; }
+    .slider{ display:flex; transition:transform .5s ease; }
+    .slide{
+      min-width:100%; padding:1rem;
+      background:var(--card-bg);
+      text-align:center; border-radius:10px;
+    }
+    .slide img{
+      max-width:100%; max-height:200px;
+      object-fit:cover; border-radius:8px;
+    }
+    .slide h3{ color:var(--accent); margin:1rem 0 .5rem; }
+    .slide p{ font-size:.9rem; line-height:1.4; }
+    .prev, .next{
+      position:absolute; top:50%; transform:translateY(-50%);
+      background:var(--accent); color:#fff; border:none;
+      padding:.5rem 1rem; font-size:2rem;
+      cursor:pointer; border-radius:5px; z-index:2;
+    }
+    .prev{ left:10px; } .next{ right:10px; }
+    footer{
+      background:var(--nav); text-align:center;
+      padding:2rem; color:#ccc;
+    }
+    a{ color:var(--accent); }
+    a:hover{ text-decoration:underline; }
+
+    .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 25px;
+        }
+    
+    .histoire-img {
+      max-width: 100%;
+      height: auto;
       border-radius: 10px;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 15px rgba(0, 170, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    section {
-      padding: 3rem 2rem;
-      max-width: 1000px;
-      margin: auto;
+    
+    .histoire-img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0, 170, 255, 0.3);
     }
-    .models {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .card {
-      background-color: #1c1c1c;
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: scale(1.05);
-    }
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .card-content {
-      padding: 1rem;
-    }
-    .card-content h3 {
-      margin-bottom: 0.5rem;
-      color: #0071ce;
-    }
-    footer {
-      background-color: #001f3f;
+    
+    .img-caption {
       text-align: center;
-      padding: 2rem;
-      margin-top: 2rem;
-    }
-    footer p {
+      font-style: italic;
+      color: var(--accent);
       font-size: 0.9rem;
-      color: #ccc;
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .img-container {
+      text-align: center;
+      margin: 2rem 0;
     }
   </style>
 </head>
 <body>
-
- <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Alpine_logo.svg/2560px-Alpine_logo.svg.png" alt="Logo Alpine">
+      <header>
+    <button class="toggle" onclick="document.body.classList.toggle('light')">Mode Clair/Sombre</button>
+    <h1>Alpine</h1>
     <p>La passion automobile française depuis 1955</p>
   </header>
+
+
   <nav>
     <a href="#histoire">Histoire</a>
     <a href="#modeles">Modèles</a>
+    <a href="#course">Course</a>
     <a href="#innovation">Innovation</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <div class="hero">
-    <h2>Découvrez l’A110 — Légèreté, Agilité, Pureté</h2>
-  </div>
+
+
 
   <section id="histoire">
-    <h2>Notre Histoire</h2>
-    <p>
-      Fondée par Jean Rédélé en 1955, Alpine est née de la passion pour la compétition automobile. Connue pour ses voitures légères et performantes, la marque s’est distinguée dans les rallyes et sur les circuits. En 1973, Alpine remporte le Championnat du Monde des Rallyes avec l’A110. Après une pause, la marque renaît en 2017 sous l’égide de Renault avec un objectif clair : faire revivre l’esprit de la conduite pure.
-    </p>
-  </section>
+    <div class="container">
+        <h1>Histoire d'Alpine</h1>
+        <p>Alpine est une marque automobile française fondée en 1955 par Jean Rédélé. Voici un aperçu de son histoire :</p>
+ <img src="https://www.largus.fr/images/styles/max_1300x1300/public/images/alpine-coach-a106-redele.jpg?itok=MjQRXUYi" alt="Jean Rédélé avec une Renault 4CV modifiée">
+        <h2>Les débuts</h2>
+        <p>Jean Rédélé, un jeune pilote et fils d'un concessionnaire Renault, commence à modifier des voitures Renault 4CV pour les courses automobiles. Ses succès en compétition l'incitent à créer sa propre marque, Alpine, en 1955. Le nom "Alpine" est inspiré par les victoires de Rédélé dans les Alpes.</p>
+
+        <h2>Les années 1960 et 1970</h2>
+        <p>Alpine se fait rapidement un nom dans le monde de la compétition automobile. La marque remporte de nombreuses victoires en rallye, notamment avec des modèles comme l'Alpine A110, qui devient emblématique. L'A110, également connue sous le nom de "Berlinette", remporte plusieurs titres en rallye, dont le Championnat du Monde des Rallyes en 1973.</p>
+
+        <h2>L'association avec Renault</h2>
+        <p>Dès ses débuts, Alpine utilise des mécaniques Renault. En 1973, Renault prend une participation majoritaire dans Alpine, ce qui permet à la marque de bénéficier de ressources supplémentaires pour le développement et la production de ses véhicules. Cette association se renforce au fil des années, et Alpine devient une filiale à part entière de Renault.</p>
+
+        <h2>Les années 1980 et 1990</h2>
+        <p>Dans les années 1980, Alpine continue à briller en compétition avec des modèles comme l'Alpine A310 et l'Alpine GTA. Cependant, la marque rencontre des difficultés financières et commerciales dans les années 1990, ce qui conduit à une réduction de ses activités.</p>
+<img src="https://www.automobile-sportive.com/guide/alpine/a310v6/alpine-a310-v6.jpg" >
+        <h2>La renaissance</h2>
+        <p>Au début des années 2000, Renault relance la marque Alpine avec le développement de nouveaux modèles. En 2017, Alpine présente l'A110, une voiture sportive qui rend hommage à la Berlinette des années 1970. Ce modèle marque le retour d'Alpine sur le marché automobile et reçoit un accueil très favorable de la part des amateurs de voitures sportives.</p>
+
+        <h2>Alpine aujourd'hui</h2>
+        <p>Alpine continue à se développer et à innover, avec des projets ambitieux dans le domaine des voitures sportives et de la compétition automobile. La marque participe notamment au Championnat du Monde d'Endurance FIA et envisage de s'engager en Formule 1 à l'avenir.</p>
+
+        <p>Alpine est un exemple de la passion et de l'ingéniosité française en matière d'automobile, avec une histoire riche en succès et en innovations.</p>
+    </div>
+
+  <div class="hero"><h1>La nouvelle ère Alpine</h1></div>
 
   <section id="modeles">
-    <h2>Nos Modèles</h2>
-    <div class="models">
-      <div class="card">
-        <img src="https://cdn.group.renault.com/alp/master/alpine-new-cars/product-plans/range/range-picker/alpine-editorial-range-picker-017.jpg.ximg.xsmall.jpg/f0b5aadedf.jpg" alt="Alpine A110" />
-        <div class="card-content">
-          <h3>Alpine A110</h3>
-          <p>Le modèle emblématique revisité pour aujourd’hui : agilité, précision et plaisir de conduite pur.</p>
+    <h2>Modèles Alpine</h2>
+    <div class="slider-container">
+      <button class="prev">&#10094;</button>
+      <div class="slider">
+        <!-- A290 -->
+        <div class="slide">
+          <img src="https://images.caradisiac.com/logos-ref/modele/modele--alpine-a290/S7-modele--alpine-a290.jpg" alt="Alpine A290">
+          <h3>A290</h3>
+          <p>Hot hatch électrique – ~380 km autonomie.</p>
         </div>
-      </div>
-      <div class="card">
-        <img src="https://cdn.group.renault.com/alp/master/alpine-new-cars/product-plans/a110gt/editorial/alpine-a110-gt-007.jpg.ximg.xsmall.jpg/457c4fcc9d.jpg" alt="A110 GT" />
-        <div class="card-content">
+        <!-- A390 -->
+        <div class="slide">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST1eQ9vAAuJ6Ja9u8B7w0uvDr9jhIAEmAEkw&s" alt="Alpine A390">
+          <h3>A390</h3>
+          <p>SUV fastback – jusqu’à 470 ch, lancement fin 2025.</p>
+        </div>
+        <!-- A110 -->
+        <div class="slide">
+          <img src="https://img4.autodeclics.com/photo_article/103135/41508/1200-L-alpine-a110-2022-une-gamme-claircie-pour-les-dernires-annes-du-thermique.jpg" alt="Alpine A110">
+          <h3>A110</h3>
+          <p>252 ch, 0–100 km/h en 4,5 s, esprit originel.</p>
+        </div>
+        <!-- A110 GT -->
+        <div class="slide">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKbDq-tGwmFxCsVGobcCumw4buqXQ0mXTw8g&s" alt="Alpine A110 GT">
           <h3>A110 GT</h3>
-          <p>La version grand tourisme : confort, élégance et performance réunis dans une même machine.</p>
+          <p>300 ch, 0–100 km/h en 4,2 s, poids 1 119 kg.</p>
         </div>
-      </div>
-      <div class="card">
-        <img src="https://pdlv.fr/wp-content/uploads/2022/02/fiche-technique-alpine-a110-s-300-2022.jpg" alt="A110 S" />
-        <div class="card-content">
+        <!-- A110 S -->
+        <div class="slide">
+          <img src="https://pdlv.fr/wp-content/uploads/2022/02/fiche-technique-alpine-a110-s-300-2022.jpg" alt="Alpine A110 S">
           <h3>A110 S</h3>
-          <p>La sportive ultime de la gamme : plus de puissance, plus de grip, plus d’émotions.</p>
+          <p>300 ch, châssis sport, 0–100 km/h en 4,2 s.</p>
+        </div>
+        <!-- A110 R -->
+        <div class="slide">
+          <img src="https://lachainerenault.com/wp-content/uploads/2024/10/f4d6e333ad3b01abee2471b5aa54568d-l.jpg.webp" alt="Alpine A110 R">
+          <h3>A110 R</h3>
+          <p>300 ch, poids 1 082 kg, 0–100 km/h en 3,9 s, top 285 km/h.</p>
         </div>
       </div>
+      <button class="next">&#10095;</button>
     </div>
+  </section>
+
+
+
+<section id="course">
+    <h2>Alpine et la Course Automobile</h2>
+    <p>
+      L’ADN d’Alpine est profondément enraciné dans la compétition. Dès les années 60, Alpine s’illustre dans les rallyes, avec des victoires retentissantes comme au Rallye de Monte-Carlo. La marque atteint son apogée en 1978 en remportant les 24 Heures du Mans avec l’A442B.
+    </p>
+    <p>
+      Aujourd’hui, Alpine est engagée dans des compétitions prestigieuses comme le <strong>FIA World Endurance Championship (WEC)</strong> avec l’Alpine A480, et en <strong>Formule 1</strong> sous l'écurie <em>BWT Alpine F1 Team</em>, incarnant l’excellence française sur la scène mondiale.
+    </p>
   </section>
 
   <section id="innovation">
@@ -161,12 +224,28 @@
 
   <section id="contact">
     <h2>Contact & Infos</h2>
-    <p>Pour en savoir plus, visitez le site officiel : <a href="https://www.alpinecars.com" target="_blank" style="color:#00aaff;">alpinecars.com</a></p>
+    <p>Pour en savoir plus, visitez le site officiel : <a href="https://www.alpinecars.com" target="_blank">alpinecars.com</a></p>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Alpine - Tous droits réservés</p>
-  </footer>
+  <script>
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    let index = 0, total = slides.length;
 
+    function updateSlider(){ slider.style.transform = `translateX(${-index * 100}%)`; }
+
+    prev.addEventListener('click', ()=>{
+      index = (index - 1 + total) % total; updateSlider();
+    });
+    next.addEventListener('click', ()=>{
+      index = (index + 1) % total; updateSlider();
+    });
+
+    setInterval(()=>{
+      index = (index + 1) % total; updateSlider();
+    }, 5000);
+  </script>
 </body>
 </html>
