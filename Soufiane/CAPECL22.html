@@ -6,38 +6,58 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #fefefe;
+      background-color: #f2f6fc;
       margin: 0;
       padding: 0;
       color: #333;
     }
 
     header {
-      background-color: #2e86de;
+      background: linear-gradient(135deg, #2e86de, #5dade2);
       color: white;
-      padding: 30px 20px;
+      padding: 50px 20px;
       text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 3em;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      font-size: 1.3em;
+      margin-top: 10px;
+      font-style: italic;
+      opacity: 0.9;
     }
 
     .award {
       display: flex;
       align-items: center;
-      padding: 20px;
-      border-bottom: 1px solid #ddd;
+      padding: 25px;
+      border-bottom: 1px solid #ccc;
+      background-color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .award:hover {
+      background-color: #eaf2fb;
     }
 
     .award img {
-      width: 100px;
-      height: 100px;
+      width: 110px;
+      height: 110px;
       object-fit: cover;
       border-radius: 50%;
-      margin-right: 20px;
-      border: 3px solid #2e86de;
+      margin-right: 25px;
+      border: 4px solid #2e86de;
+      transition: transform 0.3s ease;
+    }
+
+    .award:hover img {
+      transform: scale(1.05);
     }
 
     .award-text h2 {
@@ -47,8 +67,18 @@
     }
 
     .award-text p {
-      font-size: 1.2em;
+      font-size: 1.1em;
       margin: 0;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #2e86de;
+      color: white;
+      font-size: 0.9em;
+      margin-top: 40px;
     }
   </style>
 </head>
@@ -56,72 +86,76 @@
 
   <header>
     <h1>CAPECL 2</h1>
-    <p>Récompenses de la classe</p>
+    <p>Les récompenses 2024 – version fun et (presque) sérieuse 😎</p>
   </header>
 
   <div class="award">
     <img src="images/Florian.png" alt="Florian">
     <div class="award-text">
-      <h2> Le plus charo de la classe</h2>
-      <p> </p>
+      <h2>🥵 Le plus charo de la classe</h2>
+      <p></p>
     </div>
   </div>
 
   <div class="award">
     <img src="images/Valentin.png" alt="Valentin">
     <div class="award-text">
-      <h2> Le plus drôle</h2>
-      <p> </p>
+      <h2>😂 Le plus drôle</h2>
+      <p></p>
     </div>
   </div>
 
   <div class="award">
     <img src="images/Ayman.png" alt="Ayman">
     <div class="award-text">
-      <h2> Le plus intelligent</h2>
-      <p> </p>
+      <h2>🧠 Le plus intelligent</h2>
+      <p></p>
     </div>
   </div>
 
   <div class="award">
     <img src="images/Milan.png" alt="Milan">
     <div class="award-text">
-      <h2> Le plus chiant</h2>
-      <p> </p>
+      <h2>😈 Le plus chiant</h2>
+      <p></p>
     </div>
   </div>
 
   <div class="award">
     <img src="images/Pierre.png" alt="Pierre">
     <div class="award-text">
-      <h2> Le meilleur style vestimentaire</h2>
-      <p> </p>
+      <h2>🧥 Le meilleur style vestimentaire</h2>
+      <p></p>
     </div>
   </div>
 
   <div class="award">
     <img src="images/Thais.png" alt="Thais">
     <div class="award-text">
-      <h2> Le plus drama queen </h2>
-      <p> </p>
+      <h2>🎭 Le plus drama queen</h2>
+      <p></p>
     </div>
   </div>
 
   <div class="award">
     <img src="images/Antoine.png" alt="Antoine">
     <div class="award-text">
-      <h2> Le plus timide</h2>
-      <p> </p>
+      <h2>😶 Le plus timide</h2>
+      <p></p>
     </div>
   </div>
-  
+
   <div class="award">
     <img src="images/Pierre.png" alt="Pierre">
     <div class="award-text">
-      <h2> Le plus gay </h2>
-      <p> </p>
+      <h2>🌈 Le plus gay</h2>
+      <p></p>
     </div>
   </div>
+
+  <footer>
+    Fait par les élèves de CAPECL 2 – 2024
+  </footer>
 
 </body>
 </html>
